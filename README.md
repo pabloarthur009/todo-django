@@ -5,6 +5,8 @@ Sistema web para gerenciar tarefas, com CRUD completo.
 
 ## Integrante
 - Pablo Arthur Ferreira Alves
+- Felipe de Freitas Oliveira
+
 
 ## Como Executar
 1. Clone o repositório.
