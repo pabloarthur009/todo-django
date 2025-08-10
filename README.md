@@ -3,9 +3,8 @@
 ## Visão Geral
 Sistema web para gerenciar tarefas, com CRUD completo.
 
-## Integrantes
-- Aluno 1
-- Aluno 2
+## Integrante
+- Pablo Arthur Ferreira Alves
 
 ## Como Executar
 1. Clone o repositório.
