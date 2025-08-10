@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes da Tarefa</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        h1 { color: #333; }
+        .detalhes { background: #f9f9f9; padding: 20px; margin: 20px 0; }
+        .acoes a { margin-right: 10px; text-decoration: none; }
+        .concluida { color: green; }
+        .pendente { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>{{ tarefa.titulo }}</h1>
+    
+    <div class="detalhes">
+        <p><strong>Descrição:</strong> {{ tarefa.descricao|default:"Nenhuma descrição" }}</p>
+        <p><strong>Status:</strong> 
+            {% if tarefa.concluida %}
+                <span class="concluida">Concluída</span>
+            {% else %}
+                <span class="pendente">Pendente</span>
+            {% endif %}
+        </p>
+        <p><strong>Criada em:</strong> {{ tarefa.criada_em|date:"d/m/Y H:i" }}</p>
+    </div>
+
+    <div class="acoes">
+        <a href="{% url 'editar_tarefa' tarefa.pk %}">Editar</a>
+        <a href="{% url 'excluir_tarefa' tarefa.pk %}">Excluir</a>
+        <a href="{% url 'lista_tarefas' %}">Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #333; }
+        .tarefa { padding: 10px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+        .acoes a { margin-right: 10px; text-decoration: none; }
+        .sem-tarefas { color: #666; font-style: italic; }
+        .concluida { text-decoration: line-through; color: #999; }
+    </style>
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    
+    <a href="{% url 'criar_tarefa' %}">+ Adicionar Tarefa</a>
+
+    <div class="lista-tarefas">
+        {% for tarefa in tarefas %}
+        <div class="tarefa {% if tarefa.concluida %}concluida{% endif %}">
+            <h3>{{ tarefa.titulo }}</h3>
+            <p>{{ tarefa.descricao|default:"Sem descrição" }}</p>
+            <div class="acoes">
+                <a href="{% url 'detalhe_tarefa' tarefa.pk %}">Ver</a>
+                <a href="{% url 'editar_tarefa' tarefa.pk %}">Editar</a>
+                <a href="{% url 'excluir_tarefa' tarefa.pk %}">Excluir</a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="sem-tarefas">Nenhuma tarefa cadastrada.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
