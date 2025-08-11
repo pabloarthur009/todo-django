@@ -35,3 +35,4 @@ def excluir_tarefa(request, pk):
     tarefa = get_object_or_404(Tarefa, pk=pk)
     tarefa.delete()
     return redirect('lista_tarefas')
+    
